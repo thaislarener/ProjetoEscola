@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DevTurma2\\back\\escolaNc\\escolaNc\\escolaNc.csproj": {}
+    "C:\\DevTurma2\\ProjetoEscola\\back\\escolaNc\\escolaNc\\escolaNc.csproj": {}
   },
   "projects": {
-    "C:\\DevTurma2\\back\\escolaNc\\escolaNc\\escolaNc.csproj": {
+    "C:\\DevTurma2\\ProjetoEscola\\back\\escolaNc\\escolaNc\\escolaNc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DevTurma2\\back\\escolaNc\\escolaNc\\escolaNc.csproj",
+        "projectUniqueName": "C:\\DevTurma2\\ProjetoEscola\\back\\escolaNc\\escolaNc\\escolaNc.csproj",
         "projectName": "escolaNc",
-        "projectPath": "C:\\DevTurma2\\back\\escolaNc\\escolaNc\\escolaNc.csproj",
+        "projectPath": "C:\\DevTurma2\\ProjetoEscola\\back\\escolaNc\\escolaNc\\escolaNc.csproj",
         "packagesPath": "C:\\Users\\thaisla.romeiro\\.nuget\\packages\\",
-        "outputPath": "C:\\DevTurma2\\back\\escolaNc\\escolaNc\\obj\\",
+        "outputPath": "C:\\DevTurma2\\ProjetoEscola\\back\\escolaNc\\escolaNc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\thaisla.romeiro\\AppData\\Roaming\\NuGet\\NuGet.Config",

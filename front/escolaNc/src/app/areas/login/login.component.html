@@ -7,9 +7,9 @@
     <label for="floatingInput">CPF</label>
   </div>
   <div class="form-floating mb-3">
-    <input name="password" id="password" formControlName="senha" required
+    <input name="password" id="password" formControlName="hash_senha" required
     type="password" class="form-control" id="floatingInput" placeholder="Senha">
     <label for="floatingInput">Senha</label>
   </div>
-  <button type="submit" class="btn btn-primary btn-block" (click)="validar()">Entrar</button>
+  <button class="btn btn-primary btn-block" (click)="validar()">Entrar</button>
 </form>

@@ -19,10 +19,11 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
+    this.validaForm();
   }
   public validaForm(){
     this.form = this.fb.group({
-      nome: '',
+      nome: [''],
       cpf: ['', Validators.required],
       hash_senha: ['', Validators.required]
     });
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.api.post(`login/validar`, this.form.value).subscribe(
       (dados: any) => {
         if(dados !== null || dados !== undefined ){
-          this.router.navigate(['/usuario']);
+          this.router.navigate(['/home']);
         }
       },
       (erro: any) => {

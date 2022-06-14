@@ -12,7 +12,7 @@ import { HomeComponent } from './layout/home/home.component';
 
 const routes: Routes = [
   {
-    path: 'home', component: HomeComponent,canActivate: [GuardGuard],
+    path:'home', component: HomeComponent,
     children:[
       {path:'usuario', component: UsuarioComponent},
       {path:'cadastro', component: CadastroComponent},
@@ -20,12 +20,10 @@ const routes: Routes = [
       {path:'contratacao', component: ContratacaoComponent},
       {path:'relatorio', component: RelatoriosComponent}
     ],
-
   },
   {
     path:'', component: AuthenticationComponent,
     children:[
-      {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path:'login', component: LoginComponent}
     ]
   }

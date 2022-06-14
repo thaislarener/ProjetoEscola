@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4Y4rjHoqTCgddhjmePWFlHUBdNzpGQDH6FW4fpaQWjZiLrT+Y3UBNQU7rtWraD3lKNe8/U8WFJmPMKL9e19Urg==",
+  "dgSpecHash": "3Biqp4VniM3igCR+2F2Nzz+ZMd8Sxn8wMtcdBxPeE8RqoetfUlEkBYCw/0d0aeaXKOcYsGOvLKMHxnZ+otjcrg==",
   "success": true,
-  "projectFilePath": "C:\\DevTurma2\\back\\escolaNc\\escolaNc\\escolaNc.csproj",
+  "projectFilePath": "C:\\DevTurma2\\ProjetoEscola\\back\\escolaNc\\escolaNc\\escolaNc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thaisla.romeiro\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\thaisla.romeiro\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
