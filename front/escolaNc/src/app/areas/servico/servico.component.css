@@ -1,0 +1,15 @@
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.flex-item {
+  margin-left: auto;
+}
+.printCpf {
+  white-space: nowrap;
+}
+
+#linha {
+  display: none;
+}

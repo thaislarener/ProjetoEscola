@@ -1,0 +1,156 @@
+<div class="container">
+  <div class="flex-box">
+    <div class="titulo">
+      <h2>Serviços</h2>
+    </div>
+    <div class="flex-item printnone">
+      <button class="btn btn-sm btn-outline-success me-2" (click)="inserir();">
+        <i class="bi bi-plus-lg"></i>
+      </button>
+    </div>
+  </div>
+    <div id="conteudo" class="row">
+      <div *ngIf="!insere" class="col-md-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Descrição</th>
+              <th>Preço</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of servicos;">
+              <td>{{item.id}}</td>
+              <td>{{item.descricao}}</td>
+              <td>{{item.preco}}</td>
+              <td class="align-middle">
+                <div class="btn-group">
+                  <button class="me-2 btn btn-sm btn-outline-primary" (click)="editar(item);">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-danger" (click)="excluir(item.id);" data-bs-toggle="modal"
+                    data-bs-target="#modalConfirmacaoI">
+                    <i class="bi bi-trash3"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="insere" class="col-md-8">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Descrição</th>
+              <th>Preço</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of servicos;">
+              <td>{{item.id}}</td>
+              <td>{{item.descricao}}</td>
+              <td>{{item.preco}}</td>
+              <td class="align-middle">
+                <div class="btn-group">
+                  <button class="me-2 btn btn-sm btn-outline-primary" (click)="editar(item);">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-danger"  (click)="excluir(item.id);" data-bs-toggle="modal"
+                    data-bs-target="#modalConfirmacaoI">
+                    <i class="bi bi-trash3"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="insere" class="offset-md-1 col-md-3" style="position: relative">
+        <form [formGroup]="form" >
+          <h2>Adicionar Serviço</h2>
+          <!-- <div class="form-floating mb-3">
+            <input readonly formControlName="id"
+            type="text" class="form-control" id="floatingInput" placeholder="ID"  >
+            <label for="floatingInput">ID</label>
+          </div> -->
+          <div class="form-floating mb-3">
+            <input [ngClass]="{'is-invalid': f.descricao.errors && f.descricao.touched}" formControlName="descricao"
+            type="text" class="form-control" id="floatingInput" placeholder="Descrição">
+            <label for="floatingInput">Descrição</label>
+            <div *ngIf="f.descricao.errors?.required" class="invalid-feedback">
+              Campo de preenchimento obrigatorio
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input [ngClass]="{'is-invalid': f.preco.errors && f.preco.touched}" formControlName="preco"
+            type="text" class="form-control" id="floatingInput" placeholder="Preço">
+            <label for="floatingInput">Preço</label>
+            <div *ngIf="f.preco.errors?.required" class="invalid-feedback">
+              Campo de preenchimento obrigatorio
+            </div>
+          </div>
+          <button class="mt-2 btn btnsm btn-outline-success" (click)="incluir()">
+            <i class="bi bi-check2"></i>
+          </button>
+        </form>
+      </div>
+</div>
+
+<!-- Modal Confirmação Exclusão -->
+<!-- <div class="modal fade" id="modalConfirmacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmar exclusão</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Tem certeza que deseja excluir esse serviço?
+        <br />
+        <strong>Drecrição:</strong> {{ f.descricao }}
+        <br />
+        <strong>Valor:</strong> {{ f.preco }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="excluir(f.id)">
+          Excluir
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="modal fade" id="modalConfirmacaoI" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Inserir novo serviço</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]="form">
+          <label for="idadeE">Descrição</label>
+          <input [ngClass]="{'is-invalid': f.descricao.errors && f.descricao.touched}" formControlName="descricao"
+            type="text" class="mt-2 form-control form-label" />
+          <div *ngIf="f.descricao.errors?.required" class="invalid-feedback"> Insira uma descrição</div>
+
+          <label for="cpfE">Preço</label>
+          <input [ngClass]="{'is-invalid': f.preco.errors && f.preco.touched}" formControlName="preco" type="text"
+            class="mt-2 form-control form-label" />
+          <div *ngIf="f.preco.errors?.required" class="invalid-feedback"> Insira um preço</div>
+          <div *ngIf="f.preco.errors?.pattern" class="invalid-feedback"> So pode conter ponto</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button [disabled]="f.descricao.errors || f.preco.errors" type="button" class="btn btn-success"
+          data-bs-dismiss="modal" >
+          <i class="bi bi-plus-lg"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
