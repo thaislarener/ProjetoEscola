@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/services/api.service';
+import { LoginServiceService } from 'src/services/login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,17 @@ import { ApiService } from 'src/services/api.service';
 })
 export class LoginComponent implements OnInit {
   public form!: FormGroup;
+  public navegar: boolean = true;
 
-  constructor( private api: ApiService, private fb: FormBuilder, private router: Router) { }
+  constructor(
+    private api: ApiService,
+    private fb: FormBuilder,
+    private router: Router,
+    private login: LoginServiceService
+    ) { }
 
   get f(): any{
+    this.navegar = true;
     return this.form.controls;
   }
 
@@ -32,7 +40,29 @@ export class LoginComponent implements OnInit {
   public validar(){
     this.api.post(`login/validar`, this.form.value).subscribe(
       (dados: any) => {
+        if(dados){
+          this.login.salvaUsuarioLogado(this.form.value);
+          this.router.navigate(['/home']);
+        }
+        else
+          alert("Senha incorreta!")
+      },
+      (erro: any) => {
+        alert(erro.error);
+      }
+    )
+  }
+
+  public navega(){
+    this.navegar = !this.navegar;
+  }
+
+  public cadastro(){
+    this.api.post(`login/cadastro`, this.form.value).subscribe(
+      (dados: any) => {
         if(dados !== null || dados !== undefined ){
+          alert("Usuário cadastrado com sucesso!");
+          this.login.salvaUsuarioLogado(this.form.value);
           this.router.navigate(['/home']);
         }
       },

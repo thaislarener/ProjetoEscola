@@ -12,7 +12,7 @@ import { HomeComponent } from './layout/home/home.component';
 
 const routes: Routes = [
   {
-    path:'home', component: HomeComponent,
+    path:'home', component: HomeComponent,canActivate: [GuardGuard],
     children:[
       {path:'usuario', component: UsuarioComponent},
       {path:'cadastro', component: CadastroComponent},
@@ -24,24 +24,12 @@ const routes: Routes = [
   {
     path:'', component: AuthenticationComponent,
     children:[
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       {path:'login', component: LoginComponent}
     ]
-  }
+  },
+  { path: '**', redirectTo: ''}
 ];
-// const routes: Routes = [
-//   {
-//     path: 'home', component: HomeComponent, canActivate: [GuardGuard],
-//     children:[
-//       {path:'usuario', component: UsuarioComponent},
-//       {path:'cadastro', component: CadastroComponent},
-//       {path:'servico', component: ServicoComponent},
-//       {path:'contratacao', component: ContratacaoComponent},
-//       {path:'relatorio', component: RelatoriosComponent}
-//     ],
-
-//   },
-//   {path:'login', component: LoginComponent}
-// ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

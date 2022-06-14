@@ -1,15 +1,41 @@
-<h2 class="text-center">Entrar</h2>
-<form [formGroup]="form" >
-  <h2>Login</h2>
-  <div class="form-floating mb-3">
-    <input name="cpf" id="cpf" formControlName="cpf" required
-    type="text" class="form-control" id="floatingInput" placeholder="CPF">
-    <label for="floatingInput">CPF</label>
-  </div>
-  <div class="form-floating mb-3">
-    <input name="password" id="password" formControlName="hash_senha" required
-    type="password" class="form-control" id="floatingInput" placeholder="Senha">
-    <label for="floatingInput">Senha</label>
-  </div>
-  <button class="btn btn-primary btn-block" (click)="validar()">Entrar</button>
-</form>
+<div *ngIf="navegar">
+  <h2 class="text-center">Login</h2>
+  <form [formGroup]="form">
+    <div class="form-floating mb-3">
+      <input name="cpf" id="cpf" formControlName="cpf" required type="text" class="form-control" id="floatingInput"
+        placeholder="CPF">
+      <label for="floatingInput">CPF</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input name="password" id="password" formControlName="hash_senha" required type="password" class="form-control"
+        id="floatingInput" placeholder="Senha">
+      <label for="floatingInput">Senha</label>
+    </div>
+    <button class="btn btn-primary btn-block" (click)="validar()">Entrar</button>
+    <button type="button" class="btn btn-link btn-block" (click)="navega()">Criar conta</button>
+  </form>
+</div>
+
+
+<div *ngIf="!navegar">
+  <h2 class="text-center">Cadastro</h2>
+  <form [formGroup]="form">
+    <div class="form-floating mb-3">
+      <input name="nome" id="nome" formControlName="nome" required type="text" class="form-control" id="floatingInput"
+        placeholder="Nome">
+      <label for="floatingInput">Nome</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input name="cpf" id="cpf" formControlName="cpf" required type="text" class="form-control" id="floatingInput"
+        placeholder="CPF">
+      <label for="floatingInput">CPF</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input name="password" id="password" formControlName="hash_senha" required type="password" class="form-control"
+        id="floatingInput" placeholder="Senha">
+      <label for="floatingInput">Senha</label>
+    </div>
+    <button class="btn btn-primary btn-block" (click)="cadastro()">Cadastre-se</button>
+    <button type="button" class="btn btn-link btn-block" (click)="navega()">Voltar</button>
+  </form>
+</div>
