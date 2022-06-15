@@ -1,41 +1,64 @@
 <div *ngIf="navegar">
-  <h2 class="text-center">Login</h2>
-  <form [formGroup]="form">
-    <div class="form-floating mb-3">
-      <input name="cpf" id="cpf" formControlName="cpf" required type="text" class="form-control" id="floatingInput"
-        placeholder="CPF">
-      <label for="floatingInput">CPF</label>
+  <div class="modal-content rounded-4 shadow">
+    <div class="modal-header p-5 pb-4 border-bottom-0">
+      <h2 class="fw-bold mb-0">Login</h2>
     </div>
-    <div class="form-floating mb-3">
-      <input name="password" id="password" formControlName="hash_senha" required type="password" class="form-control"
-        id="floatingInput" placeholder="Senha">
-      <label for="floatingInput">Senha</label>
+
+    <div class="modal-body p-5 pt-0">
+      <form [formGroup]="form">
+        <div class="form-floating mb-3">
+          <input name="cpf" id="cpf" formControlName="cpf" required type="text" class="form-control" id="floatingInput"
+            placeholder="CPF">
+          <label for="floatingInput">CPF</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input name="password" id="password" formControlName="hash_senha" required type="password"
+            class="form-control" id="floatingInput" placeholder="Senha">
+          <label for="floatingInput">Senha</label>
+        </div>
+        <button class="btnentrar w-100 mb-2 btn btn-lg rounded-3" (click)="validar()">Entrar</button>
+        <hr class="my-4">
+        <h2 class="fs-5 fw-bold mb-3">Ainda não possui cadastro?</h2>
+
+        <button class="btnentrar1 w-100 py-2 mb-2 btn rounded-3" type="button" (click)="navega()">
+          <svg class="bi me-1" width="16" height="16"></svg>
+          Cadastre-se aqui!
+        </button>
+      </form>
     </div>
-    <button class="btn btn-primary btn-block" (click)="validar()">Entrar</button>
-    <button type="button" class="btn btn-link btn-block" (click)="navega()">Criar conta</button>
-  </form>
+  </div>
 </div>
-
-
 <div *ngIf="!navegar">
-  <h2 class="text-center">Cadastro</h2>
-  <form [formGroup]="form">
-    <div class="form-floating mb-3">
-      <input name="nome" id="nome" formControlName="nome" required type="text" class="form-control" id="floatingInput"
-        placeholder="Nome">
-      <label for="floatingInput">Nome</label>
+  <div class="modal-content rounded-4 shadow">
+    <div class="modal-header p-5 pb-4 border-bottom-0">
+      <h2 class="fw-bold mb-0">Cadastro</h2>
     </div>
-    <div class="form-floating mb-3">
-      <input name="cpf" id="cpf" formControlName="cpf" required type="text" class="form-control" id="floatingInput"
-        placeholder="CPF">
-      <label for="floatingInput">CPF</label>
+
+    <div class="modal-body p-5 pt-0">
+      <form [formGroup]="form">
+        <div class="form-floating mb-3">
+          <input name="nome" id="nome" formControlName="nome" required type="text" class="form-control"
+            id="floatingInput" placeholder="Nome">
+          <label for="floatingInput">Nome</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input name="cpf" id="cpf" formControlName="cpf" required type="text" class="form-control" id="floatingInput"
+            placeholder="CPF">
+          <label for="floatingInput">CPF</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input name="password" id="password" formControlName="hash_senha" required type="password"
+            class="form-control" id="floatingInput" placeholder="Senha">
+          <label for="floatingInput">Senha</label>
+        </div>
+        <button class="btnentrar w-100 mb-2 btn btn-lg rounded-3" (click)="cadastro()">Cadastrar-se</button>
+        <hr class="my-4">
+
+        <button class="btnentrar1 w-100 py-2 mb-2 btn rounded-3" type="button" (click)="navega()">
+          <svg class="bi me-1" width="16" height="16"></svg>
+          Voltar para o login
+        </button>
+      </form>
     </div>
-    <div class="form-floating mb-3">
-      <input name="password" id="password" formControlName="hash_senha" required type="password" class="form-control"
-        id="floatingInput" placeholder="Senha">
-      <label for="floatingInput">Senha</label>
-    </div>
-    <button class="btn btn-primary btn-block" (click)="cadastro()">Cadastre-se</button>
-    <button type="button" class="btn btn-link btn-block" (click)="navega()">Voltar</button>
-  </form>
+  </div>
 </div>

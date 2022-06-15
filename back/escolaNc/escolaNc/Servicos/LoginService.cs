@@ -40,7 +40,7 @@ namespace escolaNc.Servicos
         }
         public bool ValidarUsuario(Login login)
         {
-            Boolean validar = false;
+            Boolean validar = true;
             if (!_context.USER_LOGIN.Any(u => u.cpf == login.cpf))
             {
                 throw new Excecao($"CPF {login.cpf} não cadastrado");
@@ -50,15 +50,15 @@ namespace escolaNc.Servicos
                 var login1 = _context.USER_LOGIN.Find(login.cpf);
 
                 var senhacrip = ToSHA256(login.hash_senha);
-                if(Equals(senhacrip, login1.hash_senha))
+                if(senhacrip != login1.hash_senha)
                 {
-                    validar = true;
+                    throw new Excecao($"Senha incorreta");
                 }
                 return validar;
             }
             catch (System.Exception)
             {
-                throw new Excecao($"Não foi possível validar o usuá base de dados");
+                throw new Excecao($"CPF ou senha inválida");
             }
         }
         public static string ToSHA256(string senha)

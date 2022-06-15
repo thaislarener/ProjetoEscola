@@ -1,8 +1,12 @@
-<div class="flex-box">
-  <a routerLink="usuario">Usuários</a>
-  <a routerLink="servico">Serviços</a>
-  <a routerLink="contratacao">Serviços Contratados</a>
-  <a routerLink="relatorio">Relatórios</a>
-
-  <a (click)="sair()">Sair</a>
+<div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a routerLink="usuario" class="nav-link fw-semibold" >Usuários</a></li>
+        <li class="nav-item"><a routerLink="servico" class="nav-link fw-semibold">Serviços</a></li>
+        <li class="nav-item"><a routerLink="contratacao" class="nav-link fw-semibold">Serviços Contratados</a></li>
+        <li class="nav-item"><a routerLink="relatorio" class="nav-link fw-semibold">Relatórios</a></li>
+        <li class="nav-item"><a (click)="sair()" class="nav-link fw-semibold">Sair</a></li>
+      </ul>
+    </header>
 </div>
+

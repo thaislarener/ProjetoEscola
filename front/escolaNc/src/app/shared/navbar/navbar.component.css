@@ -1,17 +1,15 @@
-.flex-box{
-  display: flex;
-  flex-direction: row;
-}
-a{
+li{
   padding: 1em;
   text-decoration: none;
   font-size: 1.5em;
-  color: dimgray;
+  color: black;
 }
-a:hover{
-  padding: 1em;
+li:hover{
+  padding: 1.3em;
   text-decoration: none;
   font-size: 1.5em;
-  color: #353434;
-  text-shadow: 1px 1px #5b5959;
 }
+a.nav-link{
+  color: #8b46f6;
+}
+

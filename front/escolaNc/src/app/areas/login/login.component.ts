@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
         alert(erro.error);
       }
     )
+    console.log(this.form.value);
   }
 
   public navega(){
@@ -60,7 +61,7 @@ export class LoginComponent implements OnInit {
   public cadastro(){
     this.api.post(`login/cadastro`, this.form.value).subscribe(
       (dados: any) => {
-        if(dados !== null || dados !== undefined ){
+        if(dados){
           alert("Usuário cadastrado com sucesso!");
           this.login.salvaUsuarioLogado(this.form.value);
           this.router.navigate(['/home']);
